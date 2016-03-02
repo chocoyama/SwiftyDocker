@@ -7,12 +7,11 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install wget clang libicu-dev
 
-ENV SWIFT_PACKAGE_DATE 2016-03-01
-ENV SWIFT_PACKAGE_NAME swift-2.2-SNAPSHOT-$SWIFT_PACKAGE_DATE-a-ubuntu15.10
+ENV SWIFT_PACKAGE_NAME swift-2.2-SNAPSHOT-2016-03-01-a-ubuntu15.10
 
 # Swiftを入手
-RUN wget https://swift.org/builds/swift-2.2-branch/ubuntu1510/swift-2.2-SNAPSHOT-$SWIFT_PACKAGE_DATE-a/$SWIFT_PACKAGE_NAME.tar.gz\
-         https://swift.org/builds/swift-2.2-branch/ubuntu1510/swift-2.2-SNAPSHOT-$SWIFT_PACKAGE_DATE-a/$SWIFT_PACKAGE_NAME.tar.gz.sig\
+RUN wget https://swift.org/builds/swift-2.2-branch/ubuntu1510/swift-2.2-SNAPSHOT-2016-03-01-a/$SWIFT_PACKAGE_NAME.tar.gz\
+         https://swift.org/builds/swift-2.2-branch/ubuntu1510/swift-2.2-SNAPSHOT-2016-03-01-a/$SWIFT_PACKAGE_NAME.tar.gz.sig\
          -P /usr/local/src
 
 # セットアップ
