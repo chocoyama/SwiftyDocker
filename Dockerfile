@@ -16,9 +16,9 @@ RUN wget https://swift.org/builds/swift-2.2-branch/ubuntu1510/swift-2.2-SNAPSHOT
          -P /usr/local/src
 
 # セットアップ
-RUN wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
-RUN gpg --keyserver hkp://pool.sks-keyservers.net --refresh-keys Swift
-RUN gpg --verify /usr/local/src/$SWIFT_PACKAGE_NAME.tar.gz.sig
-RUN tar xzf /usr/local/src/$SWIFT_PACKAGE_NAME.tar.gz -C /usr/local/src
+RUN wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import - && \
+    gpg --keyserver hkp://pool.sks-keyservers.net --refresh-keys Swift && \
+    gpg --verify /usr/local/src/$SWIFT_PACKAGE_NAME.tar.gz.sig && \
+    tar xzf /usr/local/src/$SWIFT_PACKAGE_NAME.tar.gz -C /usr/local/src
 
 ENV PATH $PATH:/usr/local/src/$SWIFT_PACKAGE_NAME/usr/bin
